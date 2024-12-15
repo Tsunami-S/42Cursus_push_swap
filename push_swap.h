@@ -10,4 +10,7 @@ typedef struct s_list{
 	struct s_list *prev;
 }
 
+t_list *init_stack(char *str);
+void delete_list(t_list *start);
+
 #endif

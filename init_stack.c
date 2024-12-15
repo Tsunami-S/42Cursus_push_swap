@@ -1,5 +1,9 @@
 #include "push_swap.h"
 
+static int num_check(int n, t_list *start);
+static t_list *make_node(int n, t_list *prev);
+static char *now_pointa(char *str);
+
 t_list *init_stack(char *str)
 {
 	int n;
@@ -12,7 +16,7 @@ t_list *init_stack(char *str)
 	n = ft_atoi(str);
 	start = make_node(n, NULL);
 	if(!start)
-		return ERROR;
+		return NULL;
 	str = now_pointa(str);
 	prev = start;
 	while(*str)
@@ -29,7 +33,7 @@ t_list *init_stack(char *str)
 	return start;
 }
 
-int num_check(int n, t_list *start)
+static int num_check(int n, t_list *start)
 {
 	while(start)
 	{
@@ -40,7 +44,7 @@ int num_check(int n, t_list *start)
 	return 0;
 }
 
-t_list *make_node(int n, t_list *prev)
+static t_list *make_node(int n, t_list *prev)
 {
 	t_list *new;
 
@@ -54,20 +58,15 @@ t_list *make_node(int n, t_list *prev)
 	return new;
 }
 
-void delete_list(t_list *start)
+static char *now_pointa(char *str)
 {
-	t_list *tmp;
-
-	while(start)
-	{
-		tmp = start;
-		start = start->next;
-		free(tmp);
-	}
-}
-
-char *now_pointa(char *str)
-{
-	if (*str && is_space(*str))
+	while (*str && is_space(*str))
 		str++;
-	if(
+	if(*str && is_sign(*str))
+		str++;
+	while(*str && is_digit(*str))
+		str++;
+	while (*str && is_space(*str))
+		str++;
+	return str;
+}
