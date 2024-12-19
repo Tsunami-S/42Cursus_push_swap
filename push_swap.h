@@ -10,6 +10,7 @@
 typedef struct s_stack{
 	int n;
 	struct s_stack *next;
+	struct s_stack *prev;
 } t_stack;
 
 typedef struct s_list{

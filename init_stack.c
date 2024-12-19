@@ -78,6 +78,7 @@ static t_list	*make_node(int n, t_list *prev)
 	if (!new)
 		return (NULL);
 	new->n = n;
+	new->prev = prev;
 	if(prev)
 		prev->next = new;
 	new->next = NULL;

@@ -18,4 +18,5 @@ void ra(t_list *list)
 	node1 = list->start_a;
 	node2 = list->end_a;
 	list->start_a = node1->next;
-	node1
+	node2->next = node1;
+
