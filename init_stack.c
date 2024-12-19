@@ -6,23 +6,23 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:32 by tssaito           #+#    #+#             */
-/*   Updated: 2024/12/20 00:18:33 by tssaito          ###   ########.fr       */
+/*   Updated: 2024/12/20 00:40:59 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 static int		num_check(int n, t_stack *start);
-static t_stack	*make_node(int n, t_stack *prev);
+static t_stack	*make_node(long long n, t_stack *prev);
 static char		*now_pointa(char *str);
 
 int	init_stack_from_one(char *str, t_list *list)
 {
-	int		n;
-	t_stack	*next;
-	t_stack	*prev;
+	long long	n;
+	t_stack		*next;
+	t_stack		*prev;
 
-	n = ft_atoi(str);
+	n = ft_atol(str);
 	prev = make_node(n, NULL);
 	if (!prev)
 		return (error(), ERROR);
@@ -30,7 +30,7 @@ int	init_stack_from_one(char *str, t_list *list)
 	list->start_a = prev;
 	while (*str)
 	{
-		n = ft_atoi(str);
+		n = ft_atol(str);
 		if (num_check(n, list->start_a) == ERROR)
 			return (delete_stack(list), error(), ERROR);
 		next = make_node(n, prev);
@@ -45,12 +45,12 @@ int	init_stack_from_one(char *str, t_list *list)
 
 int	init_stack_from_args(int argc, char **argv, t_list *list)
 {
-	int		i;
-	int		n;
-	t_stack	*next;
-	t_stack	*prev;
+	int			i;
+	long long	n;
+	t_stack		*next;
+	t_stack		*prev;
 
-	n = ft_atoi(argv[1]);
+	n = ft_atol(argv[1]);
 	prev = make_node(n, NULL);
 	if (!prev)
 		return (error(), ERROR);
@@ -58,7 +58,7 @@ int	init_stack_from_args(int argc, char **argv, t_list *list)
 	i = 2;
 	while (i < argc)
 	{
-		n = ft_atoi(argv[i]);
+		n = ft_atol(argv[i]);
 		if (num_check(n, list->start_a) == ERROR)
 			return (delete_stack(list), error(), ERROR);
 		next = make_node(n, prev);
@@ -82,10 +82,12 @@ static int	num_check(int n, t_stack *start)
 	return (0);
 }
 
-static t_stack	*make_node(int n, t_stack *prev)
+static t_stack	*make_node(long long n, t_stack *prev)
 {
 	t_stack	*new;
 
+	if (n < INT_MIN || n > INT_MAX)
+		return (NULL);
 	new = (t_stack *)malloc(sizeof(t_stack));
 	if (!new)
 		return (NULL);

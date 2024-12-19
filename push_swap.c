@@ -2,7 +2,7 @@
 
 void push_swap(t_list *list)
 {
-	while(!ft_issorted(a, b))
+	while(ft_issorted(list) == ERROR)
 	{
 		if()
 			sa

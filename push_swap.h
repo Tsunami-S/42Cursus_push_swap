@@ -6,7 +6,7 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:03 by tssaito           #+#    #+#             */
-/*   Updated: 2024/12/20 00:18:04 by tssaito          ###   ########.fr       */
+/*   Updated: 2024/12/20 00:40:27 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void				push(t_list *list, char c);
 void				rotate(t_list *list, char c);
 void				reverse(t_list *list, char c);
 /* ft_utils */
-int					ft_atoi(const char *nptr);
+long long			ft_atol(const char *nptr);
 int					ft_issign(char c);
 int					ft_isspace(char c);
 int					ft_isdigit(int c);
