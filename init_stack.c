@@ -4,60 +4,58 @@ static int		num_check(int n, t_list *start);
 static t_list	*make_node(int n, t_list *prev);
 static char		*now_pointa(char *str);
 
-t_list	*init_stack_from_one(char *str)
+t_stack	*init_stack_from_one(char *str, t_list *list)
 {
 	int		n;
-	t_list	*start;
 	t_list	*next;
 	t_list	*prev;
 
-	if (!str)
-		return (NULL);
 	n = ft_atoi(str);
-	start = make_node(n, NULL);
-	if (!start)
+	prev = make_node(n, NULL);
+	if (!prev)
 		return (error(), NULL);
 	str = now_pointa(str);
-	prev = start;
+	list->start_a = prev;
 	while (*str)
 	{
 		n = ft_atoi(str);
 		if (num_check(n, start) == ERROR)
-			return (delete_list(start), error(), NULL);
+			return (delete_stack(list), error(), NULL);
 		next = make_node(n, prev);
 		if (!next)
-			return (delete_list(start), error(), NULL);
+			return (delete_stack(list), error(), NULL);
 		prev = next;
 		str = now_pointa(str);
 	}
+	list->end_a = prev;
 	return (start);
 }
 
-t_list	*init_stack_from_args(int argc, char **argv)
+t_stack	*init_stack_from_args(int argc, char **argv, t_list *list)
 {
 	int		i;
 	int		n;
-	t_list	*start;
 	t_list	*next;
 	t_list	*prev;
 
 	n = ft_atoi(argv[1]);
-	start = make_node(n, NULL);
-	if (!start)
+	prev = make_node(n, NULL);
+	if (!prev)
 		return (error(), NULL);
-	prev = start;
+	list->start_a = prev;
 	i = 2;
 	while (i < argc)
 	{
 		n = ft_atoi(argv[i]);
 		if (num_check(n, start) == ERROR)
-			return (delete_list(start), error(), NULL);
+			return (delete_stack(list), error(), NULL);
 		next = make_node(n, prev);
 		if (!next)
-			return (delete_list(start), error(), NULL);
+			return (delete_stack(list), error(), NULL);
 		prev = next;
 		i++;
 	}
+	list->end_a = prev;
 	return (start);
 }
 
@@ -80,7 +78,6 @@ static t_list	*make_node(int n, t_list *prev)
 	if (!new)
 		return (NULL);
 	new->n = n;
-	new->prev = prev;
 	if(prev)
 		prev->next = new;
 	new->next = NULL;
