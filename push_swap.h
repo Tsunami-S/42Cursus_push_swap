@@ -6,7 +6,7 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:03 by tssaito           #+#    #+#             */
-/*   Updated: 2024/12/20 01:11:49 by tssaito          ###   ########.fr       */
+/*   Updated: 2024/12/20 01:22:13 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ typedef enum e_act
 	rrr
 }					t_act;
 
+void				push_swap(t_list *list);
 int					init_stack_from_one(char *str, t_list *list);
 int					init_stack_from_args(int argc, char **argv, t_list *list);
 void				error(void);

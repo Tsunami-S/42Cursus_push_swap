@@ -6,7 +6,7 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:54:21 by tssaito           #+#    #+#             */
-/*   Updated: 2024/12/20 01:19:59 by tssaito          ###   ########.fr       */
+/*   Updated: 2024/12/20 01:36:15 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ void	push_swap(t_list *list)
 	while (is_sorted(list) == ERROR)
 	{
 		act = select_act(list);
-		if ()
+		if (act == sa || act == sb || act == ss)
 			swap(list, act);
-		else if ()
+		else if (act == pa || act == pb)
 			push(list, act);
-		else if ()
+		else if (act == ra || act == rb || act == rr)
 			rotate(list, act);
-		else if ()
+		else if (act == rra || act == rrb || act == rrr)
 			reverse(list, act);
 	}
 }
