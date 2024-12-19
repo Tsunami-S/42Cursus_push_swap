@@ -6,7 +6,7 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:03 by tssaito           #+#    #+#             */
-/*   Updated: 2024/12/20 00:40:27 by tssaito          ###   ########.fr       */
+/*   Updated: 2024/12/20 01:11:49 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,21 @@ typedef struct s_list
 	t_stack			*end_b;
 }					t_list;
 
+typedef enum e_act
+{
+	sa,
+	sb,
+	ss,
+	pa,
+	pb,
+	ra,
+	rb,
+	rr,
+	rra,
+	rrb,
+	rrr
+}					t_act;
+
 int					init_stack_from_one(char *str, t_list *list);
 int					init_stack_from_args(int argc, char **argv, t_list *list);
 void				error(void);
@@ -43,10 +58,10 @@ void				error(void);
 void				delete_stack(t_list *list);
 void				list_init(t_list *list);
 /* comannds */
-void				swap(t_list *list, char c);
-void				push(t_list *list, char c);
-void				rotate(t_list *list, char c);
-void				reverse(t_list *list, char c);
+void				swap(t_list *list, t_act act);
+void				push(t_list *list, t_act act);
+void				rotate(t_list *list, t_act act);
+void				reverse(t_list *list, t_act act);
 /* ft_utils */
 long long			ft_atol(const char *nptr);
 int					ft_issign(char c);

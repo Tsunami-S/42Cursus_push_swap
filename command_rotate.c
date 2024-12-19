@@ -6,30 +6,30 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:17 by tssaito           #+#    #+#             */
-/*   Updated: 2024/12/20 00:18:18 by tssaito          ###   ########.fr       */
+/*   Updated: 2024/12/20 01:16:17 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	ra(t_list *list);
-static int	rb(t_list *list);
+static int	rotate_a(t_list *list);
+static int	rotate_b(t_list *list);
 
-void	rotate(t_list *list, char c)
+void	rotate(t_list *list, t_act act)
 {
 	int	check_a;
 	int	check_b;
 
 	check_a = 0;
 	check_b = 0;
-	if (c == 'a')
-		check_a = ra(list);
-	else if (c == 'b')
-		check_b = rb(list);
-	else if (c == 'r')
+	if (act == ra)
+		check_a = rotate_a(list);
+	else if (act == rb)
+		check_b = rotate_b(list);
+	else if (act == rr)
 	{
-		check_a = ra(list);
-		check_b = rb(list);
+		check_a = rotate_a(list);
+		check_b = rotate_b(list);
 	}
 	if (check_a == SUCCESS && check_b == SUCCESS)
 		write(1, "rr\n", 3);
@@ -39,7 +39,7 @@ void	rotate(t_list *list, char c)
 		write(1, "rb\n", 3);
 }
 
-static int	ra(t_list *list)
+static int	rotate_a(t_list *list)
 {
 	t_stack	*node1;
 	t_stack	*node2;
@@ -57,7 +57,7 @@ static int	ra(t_list *list)
 	return (SUCCESS);
 }
 
-static int	rb(t_list *list)
+static int	rotate_b(t_list *list)
 {
 	t_stack	*node1;
 	t_stack	*node2;

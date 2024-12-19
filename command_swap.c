@@ -6,30 +6,30 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:21 by tssaito           #+#    #+#             */
-/*   Updated: 2024/12/20 00:18:22 by tssaito          ###   ########.fr       */
+/*   Updated: 2024/12/20 01:16:55 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	sa(t_list *list);
-static int	sb(t_list *list);
+static int	swap_a(t_list *list);
+static int	swap_b(t_list *list);
 
-void	swap(t_list *list, char c)
+void	swap(t_list *list, t_act act)
 {
 	int	check_a;
 	int	check_b;
 
 	check_a = 0;
 	check_b = 0;
-	if (c == 'a')
-		check_a = sa(list);
-	else if (c == 'b')
-		check_b = sb(list);
-	else if (c == 's')
+	if (act == sa)
+		check_a = swap_a(list);
+	else if (act == sb)
+		check_b = swap_b(list);
+	else if (act == ss)
 	{
-		check_a = sa(list);
-		check_b = sb(list);
+		check_a = swap_a(list);
+		check_b = swap_b(list);
 	}
 	if (check_a == SUCCESS && check_b == SUCCESS)
 		write(1, "ss\n", 3);
@@ -39,7 +39,7 @@ void	swap(t_list *list, char c)
 		write(1, "sb\n", 3);
 }
 
-static int	sa(t_list *list)
+static int	swap_a(t_list *list)
 {
 	t_stack	*node1;
 	t_stack	*node2;
@@ -59,7 +59,7 @@ static int	sa(t_list *list)
 	return (SUCCESS);
 }
 
-static int	sb(t_list *list)
+static int	swap_b(t_list *list)
 {
 	t_stack	*node1;
 	t_stack	*node2;

@@ -6,30 +6,30 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:13 by tssaito           #+#    #+#             */
-/*   Updated: 2024/12/20 00:18:14 by tssaito          ###   ########.fr       */
+/*   Updated: 2024/12/20 01:15:43 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	rra(t_list *list);
-static int	rrb(t_list *list);
+static int	reverse_a(t_list *list);
+static int	reverse_b(t_list *list);
 
-void	reverse(t_list *list, char c)
+void	reverse(t_list *list, t_act act)
 {
 	int	check_a;
 	int	check_b;
 
 	check_a = 0;
 	check_b = 0;
-	if (c == 'a')
-		check_a = rra(list);
-	else if (c == 'b')
-		check_b = rrb(list);
-	else if (c == 'r')
+	if (act == rra)
+		check_a = reverse_a(list);
+	else if (act == rrb)
+		check_b = reverse_b(list);
+	else if (act == rrr)
 	{
-		check_a = rra(list);
-		check_b = rrb(list);
+		check_a = reverse_a(list);
+		check_b = reverse_b(list);
 	}
 	if (check_a == SUCCESS && check_b == SUCCESS)
 		write(1, "rrr\n", 4);
@@ -39,7 +39,7 @@ void	reverse(t_list *list, char c)
 		write(1, "rrr\n", 4);
 }
 
-static int	rra(t_list *list)
+static int	reverse_a(t_list *list)
 {
 	t_stack	*node1;
 	t_stack	*node2;
@@ -57,7 +57,7 @@ static int	rra(t_list *list)
 	return (SUCCESS);
 }
 
-static int	rrb(t_list *list)
+static int	reverse_b(t_list *list)
 {
 	t_stack	*node1;
 	t_stack	*node2;
