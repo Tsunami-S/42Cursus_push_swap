@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/20 00:18:25 by tssaito           #+#    #+#             */
-/*   Updated: 2024/12/20 00:18:26 by tssaito          ###   ########.fr       */
+/*   Created: 2024/12/20 00:18:01 by tssaito           #+#    #+#             */
+/*   Updated: 2024/12/20 00:18:02 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	error(void)
+int	main(int argc, char **argv)
 {
-	write(2, "Error\n", 6);
+	int		check;
+	t_list	*list;
+
+	list_init(list);
+	if (argc < 2)
+		return (error(), 0);
+	else if (argc == 2)
+		check = init_stack_from_one(argv[1], list);
+	else
+		check = init_stack_from_args(argc, argv, list);
+	if (check == ERROR)
+		return (0);
+	push_swap(list);
+	delete_list(list);
+	return (0);
 }
