@@ -13,7 +13,8 @@ typedef struct s_list{
 	struct s_list *prev;
 } t_list;
 
-t_list *init_stack(char *str);
+t_list	*init_stack_from_one(char *str);
+t_list	*init_stack_from_args(int argc, char **argv);
 void delete_list(t_list *start);
 void error(void);
 

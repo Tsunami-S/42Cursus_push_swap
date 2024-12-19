@@ -4,7 +4,7 @@ static int		num_check(int n, t_list *start);
 static t_list	*make_node(int n, t_list *prev);
 static char		*now_pointa(char *str);
 
-t_list	*init_stack(char *str)
+t_list	*init_stack_from_one(char *str)
 {
 	int		n;
 	t_list	*start;
@@ -29,6 +29,34 @@ t_list	*init_stack(char *str)
 			return (delete_list(start), error(), NULL);
 		prev = next;
 		str = now_pointa(str);
+	}
+	return (start);
+}
+
+t_list	*init_stack_from_args(int argc, char **argv)
+{
+	int		i;
+	int		n;
+	t_list	*start;
+	t_list	*next;
+	t_list	*prev;
+
+	n = ft_atoi(argv[1]);
+	start = make_node(n, NULL);
+	if (!start)
+		return (error(), NULL);
+	prev = start;
+	i = 2;
+	while (i < argc)
+	{
+		n = ft_atoi(argv[i]);
+		if (num_check(n, start) == ERROR)
+			return (delete_list(start), error(), NULL);
+		next = make_node(n, prev);
+		if (!next)
+			return (delete_list(start), error(), NULL);
+		prev = next;
+		i++;
 	}
 	return (start);
 }
