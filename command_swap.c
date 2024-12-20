@@ -6,7 +6,7 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:21 by tssaito           #+#    #+#             */
-/*   Updated: 2024/12/20 01:16:55 by tssaito          ###   ########.fr       */
+/*   Updated: 2024/12/20 15:54:34 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,11 @@ static int	swap_a(t_list *list)
 	if (!node2)
 		return (ERROR);
 	list->start_a = node2;
+	if (list->end_a == node2)
+		list->end_a = node1;
 	node1->next = node2->next;
-	node1->next->prev = node1;
+	if (node1->next)
+		node1->next->prev = node1;
 	node1->prev = node2;
 	node2->next = node1;
 	node2->prev = NULL;
@@ -71,8 +74,11 @@ static int	swap_b(t_list *list)
 	if (!node2)
 		return (ERROR);
 	list->start_b = node2;
+	if (list->end_b == node2)
+		list->end_b = node1;
 	node1->next = node2->next;
-	node1->next->prev = node1;
+	if (node1->next)
+		node1->next->prev = node1;
 	node1->prev = node2;
 	node2->next = node1;
 	node2->prev = NULL;

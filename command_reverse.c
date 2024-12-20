@@ -6,7 +6,7 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:13 by tssaito           #+#    #+#             */
-/*   Updated: 2024/12/20 01:15:43 by tssaito          ###   ########.fr       */
+/*   Updated: 2024/12/20 15:54:28 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	reverse(t_list *list, t_act act)
 	else if (check_a == SUCCESS)
 		write(1, "rra\n", 4);
 	else if (check_b == SUCCESS)
-		write(1, "rrr\n", 4);
+		write(1, "rrb\n", 4);
 }
 
 static int	reverse_a(t_list *list)
@@ -46,7 +46,7 @@ static int	reverse_a(t_list *list)
 
 	node1 = list->start_a;
 	node2 = list->end_a;
-	if (node1 == node2)
+	if (!node1 || !node2 || node1 == node2)
 		return (ERROR);
 	list->start_a = node2;
 	list->end_a = node2->prev;
@@ -64,7 +64,7 @@ static int	reverse_b(t_list *list)
 
 	node1 = list->start_b;
 	node2 = list->end_b;
-	if (node1 == node2)
+	if (!node1 || !node2 || node1 == node2)
 		return (ERROR);
 	list->start_b = node2;
 	list->end_b = node2->prev;

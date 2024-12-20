@@ -6,7 +6,7 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:03 by tssaito           #+#    #+#             */
-/*   Updated: 2024/12/20 01:22:13 by tssaito          ###   ########.fr       */
+/*   Updated: 2024/12/20 15:54:48 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include <limits.h>
+# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -38,17 +39,17 @@ typedef struct s_list
 
 typedef enum e_act
 {
-	sa,
-	sb,
-	ss,
-	pa,
-	pb,
-	ra,
-	rb,
-	rr,
-	rra,
-	rrb,
-	rrr
+	sa = 1,
+	sb = 2,
+	ss = 3,
+	pa = 11,
+	pb = 12,
+	ra = 21,
+	rb = 22,
+	rr = 23,
+	rra = 31,
+	rrb = 32,
+	rrr = 33
 }					t_act;
 
 void				push_swap(t_list *list);
