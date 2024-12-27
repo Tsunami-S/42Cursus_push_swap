@@ -6,7 +6,7 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:03 by tssaito           #+#    #+#             */
-/*   Updated: 2024/12/20 15:54:48 by tssaito          ###   ########.fr       */
+/*   Updated: 2024/12/27 18:08:30 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ typedef struct s_list
 	t_stack			*start_b;
 	t_stack			*end_a;
 	t_stack			*end_b;
+	t_stack			*sorted_sta;
+	t_stack			*sorted_ena;
 }					t_list;
 
 typedef enum e_act
@@ -52,7 +54,8 @@ typedef enum e_act
 	rrr = 33
 }					t_act;
 
-void				push_swap(t_list *list);
+//void				push_swap(t_list *list);
+void	push_swap(t_list *list, t_stack *doko, t_stack *hikaku, int *sortnum);
 int					init_stack_from_one(char *str, t_list *list);
 int					init_stack_from_args(int argc, char **argv, t_list *list);
 void				error(void);
