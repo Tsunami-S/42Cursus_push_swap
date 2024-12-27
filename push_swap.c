@@ -76,8 +76,25 @@ void	push_swap(t_list *list, t_stack *doko, t_stack *hikaku, int *sortnum)
 	if(first_pb)
 	{
 		tmp = list->start_b;
-		while(list->start_a != first_pb)
+		t_stack *first_rb = NULL;
+		while(list->start_b && list->start_a != first_pb && list->end_b != first_pb)
+		{
+			if(list->start_b->n >= tmp->n)
+				push(list, pa);
+			else
+			{
+				if(!first_rb)
+					first_rb = list->start_b;
+				rotate(list, rb);
+			}
+		}
+		if(issorted_a(list) == ERROR)
+			push_swap(list, list->sorted_sta, list->start_a, sortnum);
+		while(first_rb && list->start_a != first_rb)
+		{
+			reverse(list, rrb);
 			push(list, pa);
+		}
 		if(issorted_a(list) == ERROR)
 			push_swap(list, list->sorted_sta, list->start_a, sortnum);
 	}

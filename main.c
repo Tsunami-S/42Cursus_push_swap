@@ -6,7 +6,7 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:01 by tssaito           #+#    #+#             */
-/*   Updated: 2024/12/28 00:33:32 by tssaito          ###   ########.fr       */
+/*   Updated: 2024/12/28 00:50:44 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,13 @@ int	main(int argc, char **argv)
 		return (0);
 	int sortnum = 0;
 	push_swap(&list, list.end_a, list.end_a, &sortnum);
+	while(list.start_b)
+	{
+		t_stack *tmp = list.start_a;
+		while(list.start_b)
+			push(&list, pa);
+		push_swap(&list, tmp, list.start_a, &sortnum);
+	}
 //	/**********debug*********/
 //	t_stack *now = list.start_a;
 //	printf("<stack_A>\n");
