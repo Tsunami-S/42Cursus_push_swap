@@ -6,7 +6,7 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:03 by tssaito           #+#    #+#             */
-/*   Updated: 2024/12/27 18:08:30 by tssaito          ###   ########.fr       */
+/*   Updated: 2024/12/28 10:31:24 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,9 @@ void	push_swap(t_list *list, t_stack *doko, t_stack *hikaku, int *sortnum);
 int					init_stack_from_one(char *str, t_list *list);
 int					init_stack_from_args(int argc, char **argv, t_list *list);
 void				error(void);
+void sort_three(t_list *list, int count);
+int	issorted_a(t_list *list);
+int stack_count(t_stack *stack);
 /* list_utils */
 void				delete_stack(t_list *list);
 void				list_init(t_list *list);
