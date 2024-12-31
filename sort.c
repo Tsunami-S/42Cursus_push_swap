@@ -20,41 +20,48 @@ void sort_three(t_list *list, int count)
 	t_stack *bottom;
 
 	if(count == 1)
+	{
+		list->sorted_sta = list->start_a;
+		list->sorted_ena = list->end_a;
 		return;
+	}
 	if(count == 2)
 	{
 		swap(list, sa);
+		list->sorted_sta = list->start_a;
+		list->sorted_ena = list->end_a;
 		return;
 	}
 	top = list->start_a;
 	middle = top->next;
-	bottom = list->end_a;
-	if(top->n < middle->n && top->n < bottom->n)
+	bottom = middle->next;
+	if(top->n < bottom->n && bottom->n < middle->n)
 	{
 		rotate(list, ra);
 		swap(list, sa);
 		reverse(list, rra);
 	}
-	else if(top->n < middle->n)
+	else if(middle->n < top->n && top->n < bottom->n)
+		swap(list, sa);
+	else if(middle->n < bottom->n && bottom->n < top->n)
 	{
+		swap(list, sa);
 		rotate(list, ra);
-		swap(list ,sa);
+		swap(list, sa);
 		reverse(list, rra);
-		swap(list, sa);
 	}
-	else if(bottom->n > top->n && bottom->n > middle->n)
-		swap(list, sa);
 	else
 	{
-		swap(list, sa);
-		rotate(list, sa);
-		swap(list, sa);
-		rotate(list, sa);
-		if(top->n > middle->n)
+		if(middle->n < top->n)
 			swap(list, sa);
+		rotate(list, ra);
+		swap(list, sa);
+		reverse(list, rra);
+		swap(list, sa);
 	}
 	list->sorted_sta = list->start_a;
 	list->sorted_ena = list->end_a;
+	list->sorted_num = stack_count(list->start_a);
 }
 
 int	issorted_a(t_list *list)
@@ -72,5 +79,6 @@ int	issorted_a(t_list *list)
 	}
 	list->sorted_sta = list->start_a;
 	list->sorted_ena = list->end_a;
+	list->sorted_num = stack_count(list->start_a);
 	return (SUCCESS);
 }

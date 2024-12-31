@@ -6,7 +6,7 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:03 by tssaito           #+#    #+#             */
-/*   Updated: 2024/12/28 10:31:24 by tssaito          ###   ########.fr       */
+/*   Updated: 2024/12/31 09:21:34 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_list
 	t_stack			*end_b;
 	t_stack			*sorted_sta;
 	t_stack			*sorted_ena;
+	int				sorted_num;
 }					t_list;
 
 typedef enum e_act
@@ -54,17 +55,17 @@ typedef enum e_act
 	rrr = 33
 }					t_act;
 
-//void				push_swap(t_list *list);
-void	push_swap(t_list *list, t_stack *doko, t_stack *hikaku, int *sortnum);
+/* push_swap */
+void				push_swap(t_list *list, t_stack *doko, t_stack *hikaku);
+void				sort_three(t_list *list, int count);
+int					issorted_a(t_list *list);
+int					stack_count(t_stack *stack);
+/* list_utils */
+void				error(void);
+void				list_init(t_list *list);
+void				delete_stack(t_list *list);
 int					init_stack_from_one(char *str, t_list *list);
 int					init_stack_from_args(int argc, char **argv, t_list *list);
-void				error(void);
-void sort_three(t_list *list, int count);
-int	issorted_a(t_list *list);
-int stack_count(t_stack *stack);
-/* list_utils */
-void				delete_stack(t_list *list);
-void				list_init(t_list *list);
 /* comannds */
 void				swap(t_list *list, t_act act);
 void				push(t_list *list, t_act act);

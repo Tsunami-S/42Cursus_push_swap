@@ -1,8 +1,9 @@
 #include "push_swap.h"
-void back_to_a(t_list *list, t_stack *en_b, int *sortnum);
+void back_to_a(t_list *list, t_stack *en_b);
 
-void	push_swap(t_list *list, t_stack *en_a, t_stack *hikaku, int *sortnum)
+void	push_swap(t_list *list, t_stack *en_a, t_stack *hikaku)
 {
+	int count;
 	t_stack *first_pb;
 
 	if(issorted_a(list) == SUCCESS && !list->start_b)
@@ -19,24 +20,36 @@ void	push_swap(t_list *list, t_stack *en_a, t_stack *hikaku, int *sortnum)
 		else
 			rotate(list, ra);
 	}
-	if(issorted_a(list) == ERROR && !*sortnum && stack_count(list->start_a) - *sortnum > 3)
-		push_swap(list, list->end_a, list->end_a, sortnum);
-	else if(issorted_a(list) == ERROR && stack_count(list->start_a) - *sortnum > 3)
-		push_swap(list, list->sorted_sta, list->start_a, sortnum);
+	count = stack_count(list->start_a) - list->sorted_num;
+	if(issorted_a(list) == ERROR && !list->sorted_num && count > 3)
+		push_swap(list, list->end_a, list->end_a);
+	else if(issorted_a(list) == ERROR && count > 3)
+	{
+		if(count > list->sorted_num)
+		{
+			while(list->sorted_ena != list->end_a)
+				rotate(list, ra);
+		}
+		else
+		{
+			while(list->sorted_ena != list->end_a)
+				reverse(list, rra);
+		}
+		push_swap(list, list->sorted_sta, list->end_a);
+	}
 	else if(issorted_a(list) == ERROR)
 	{
 		while(list->sorted_ena && list->end_a != list->sorted_ena)
 			reverse(list, rra);
-		sort_three(list, stack_count(list->start_a) - *sortnum);
+		sort_three(list, count);
 	}
-	if(issorted_a(list) == SUCCESS)
-		*sortnum = stack_count(list->start_a);
 	if(first_pb)
-		back_to_a(list, first_pb, sortnum);
+		back_to_a(list, first_pb);
 }
 
-void back_to_a(t_list *list, t_stack *en_b, int *sortnum)
+void back_to_a(t_list *list, t_stack *en_b)
 {
+	int count;
 	t_stack *first_rb;
 	t_stack *hikaku;
 
@@ -56,12 +69,11 @@ void back_to_a(t_list *list, t_stack *en_b, int *sortnum)
 			}
 		}
 		en_b = NULL;
-		if(issorted_a(list) == ERROR && stack_count(list->start_a) - *sortnum > 3)
-			push_swap(list, list->sorted_sta, list->start_a, sortnum);
+		count = stack_count(list->start_a) - list->sorted_num;
+		if(issorted_a(list) == ERROR && count > 3)
+			push_swap(list, list->sorted_sta, list->start_a);
 		else if(issorted_a(list) == ERROR)
-			sort_three(list, stack_count(list->start_a) - *sortnum);
-		if(issorted_a(list) == SUCCESS)
-			*sortnum = stack_count(list->start_a);
+			sort_three(list, count);
 		if(first_rb)
 		{
 			hikaku = list->end_b;
@@ -73,12 +85,11 @@ void back_to_a(t_list *list, t_stack *en_b, int *sortnum)
 				else if(!en_b)
 					en_b = list->start_b;
 			}
-			if(issorted_a(list) == ERROR && stack_count(list->start_a) - *sortnum > 3)
-				push_swap(list, list->sorted_sta, list->start_a, sortnum);
+			count = stack_count(list->start_a) - list->sorted_num;
+			if(issorted_a(list) == ERROR && count > 3)
+				push_swap(list, list->sorted_sta, list->start_a);
 			else if(issorted_a(list) == ERROR)
-				sort_three(list, stack_count(list->start_a) - *sortnum);
-			if(issorted_a(list) == SUCCESS)
-				*sortnum = stack_count(list->start_a);
+				sort_three(list, count);
 		}
 	}
 }
