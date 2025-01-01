@@ -19,7 +19,30 @@ void sort_three(t_list *list, int count)
 	t_stack *middle;
 	t_stack *bottom;
 
-	if(count == 1)
+//	/**********debug*********/
+//	t_stack *now = list->start_a;
+//	printf("<stack_A>\n");
+//	while(now)
+//	{
+//		printf("%d\n", now->n);
+//		now = now->next;
+//	}
+//	now = list->start_b;
+//	printf("<stack_B>\n");
+//	while(now)
+//	{
+//		printf("%d\n", now->n);
+//		now = now->next;
+//	}
+//	/**********debug*********/
+	if(list->sorted_num)
+	{
+		while(list->end_a != list->sorted_ena)
+			reverse(list, rra);
+		if(issorted_a(list) == SUCCESS)
+			return;
+	}
+ 	if(count == 1)
 	{
 		list->sorted_sta = list->start_a;
 		list->sorted_ena = list->end_a;
