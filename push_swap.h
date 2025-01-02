@@ -6,7 +6,7 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:03 by tssaito           #+#    #+#             */
-/*   Updated: 2025/01/02 18:59:03 by tssaito          ###   ########.fr       */
+/*   Updated: 2025/01/02 21:40:32 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct s_list
 
 typedef enum e_act
 {
+	none = 0,
 	sa = 1,
 	sb = 2,
 	ss = 3,
@@ -52,11 +53,15 @@ typedef enum e_act
 	rr = 23,
 	rra = 31,
 	rrb = 32,
-	rrr = 33
+	rrr = 33,
+	init = 42
 }					t_act;
 
 /* push_swap */
 void push_swap(t_list *list);
+void ash(t_list *list, t_act act);
+void write_command(t_act act);
+void select_act(t_list *list, t_act act);
 
 void sort_three(t_list *list, t_stack *top, t_stack *middle, t_stack *bottom);
 void sort_six(t_list *list, int count);

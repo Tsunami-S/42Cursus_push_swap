@@ -6,7 +6,7 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:13 by tssaito           #+#    #+#             */
-/*   Updated: 2024/12/20 15:54:28 by tssaito          ###   ########.fr       */
+/*   Updated: 2025/01/02 21:11:19 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,21 @@ static int	reverse_b(t_list *list);
 
 void	reverse(t_list *list, t_act act)
 {
-	int	check_a;
-	int	check_b;
-
-	check_a = 0;
-	check_b = 0;
 	if (act == rra)
-		check_a = reverse_a(list);
+		reverse_a(list);
 	else if (act == rrb)
-		check_b = reverse_b(list);
+		reverse_b(list);
 	else if (act == rrr)
 	{
-		check_a = reverse_a(list);
-		check_b = reverse_b(list);
+		reverse_a(list);
+		reverse_b(list);
 	}
-	if (check_a == SUCCESS && check_b == SUCCESS)
-		write(1, "rrr\n", 4);
-	else if (check_a == SUCCESS)
-		write(1, "rra\n", 4);
-	else if (check_b == SUCCESS)
-		write(1, "rrb\n", 4);
+//	if (check_a == SUCCESS && check_b == SUCCESS)
+//		write(1, "rrr\n", 4);
+//	else if (check_a == SUCCESS)
+//		write(1, "rra\n", 4);
+//	else if (check_b == SUCCESS)
+//		write(1, "rrb\n", 4);
 }
 
 static int	reverse_a(t_list *list)

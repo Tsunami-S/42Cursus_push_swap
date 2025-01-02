@@ -26,13 +26,16 @@ void push_swap(t_list *list)
 	int count;
 
 	count = stack_count(list->start_a);
-	if(count < 7)
+	ash(list, init);
+	if(count < 4)
 	{
 		if(issorted(list) == ERROR)
 			sort_six(list, count);
+		ash(list, none);
 		return;
 	}
 	pb_and_ra(list, NULL, list->start_a, list->end_a);
+	ash(list, none);
 }
 
 void pb_and_ra(t_list *list, t_stack *en_a, t_stack *min, t_stack *max)
@@ -41,28 +44,27 @@ void pb_and_ra(t_list *list, t_stack *en_a, t_stack *min, t_stack *max)
 	int medium;
 	t_stack *first_pb;
 
-	//printf("pb_and_ra\n");
 	first_pb = NULL;
 	medium =  make_average(min, max);
 	while(list->start_a != en_a)
 	{
 		if(list->start_a->n < medium)
 		{
-			push(list, pb);
+			ash(list, pb);
 			if(!first_pb)
 				first_pb = list->start_b;
 		}
 		else
 		{
-			rotate(list ,ra);
+			ash(list ,ra);
 			if(!en_a)
 				en_a = list->end_a;
 		}
 	}
 	count = stack_count(list->start_a) - list->sorted_num;
-	if(issorted(list) == ERROR && count > 6 && !list->sorted_num)
+	if(issorted(list) == ERROR && count > 3 && !list->sorted_num)
 		pb_and_ra(list, NULL, list->start_a, list->end_a);
-	else if(issorted(list) == ERROR && count > 6)
+	else if(issorted(list) == ERROR && count > 3)
 		pb_and_rra(list, list->sorted_ena, list->sorted_ena->next, list->end_a);
 	else if(issorted(list) == ERROR && count > 0)
 		sort_six(list, count);
@@ -76,21 +78,20 @@ void pb_and_rra(t_list *list, t_stack *en_a, t_stack *min, t_stack *max)
 	int medium;
 	t_stack *first_pb;
 
-	//printf("pb_and_rra\n");
 	medium =  make_average(min, max);
 	first_pb = NULL;
 	while(list->end_a != en_a)
 	{
-		reverse(list, rra);
+		ash(list, rra);
 		if(list->start_a->n < medium)
 		{
-			push(list, pb);
+			ash(list, pb);
 			if(!first_pb)
 				first_pb = list->start_b;
 		}
 	}
 	count = stack_count(list->start_a) - list->sorted_num;
-	if(issorted(list) == ERROR && count > 6)
+	if(issorted(list) == ERROR && count > 3)
 		pb_and_ra(list, list->sorted_sta, list->start_a, list->sorted_sta->prev);
 	else if(issorted(list) == ERROR && count > 0)
 		sort_six(list, count);
@@ -105,25 +106,24 @@ void pa_and_rb(t_list *list, t_stack *en_b, t_stack *min, t_stack *max)
 	t_stack *first_rb;
 	t_stack *now;
 
-	//printf("pa_and_rb\n");
 	medium =  make_average(min, max);
 	first_rb = NULL;
 	while(1)
 	{
 		now = list->start_b;
 		if(list->start_b->n >= medium)
-			push(list, pa);
+			ash(list, pa);
 		else
 		{
 			if(!first_rb)
 				first_rb = list->start_b;
-			rotate(list, rb);
+			ash(list, rb);
 		}
 		if(now == en_b)
 			break;
 	}
 	count = stack_count(list->start_a) - list->sorted_num;
-	if(issorted(list) == ERROR && count > 6)
+	if(issorted(list) == ERROR && count > 3)
 		pb_and_ra(list, list->sorted_sta, list->start_a, list->sorted_sta->prev);
 	else if(issorted(list) == ERROR && count > 0)
 		sort_six(list, count);
@@ -138,22 +138,21 @@ void pa_and_rrb(t_list *list, t_stack *en_b, t_stack *min, t_stack *max)
 	t_stack *now;
 	t_stack *first_rrb;
 
-	//printf("pa_and_rrb\n");
 	medium =  make_average(min, max);
 	first_rrb = NULL;
 	while(1)
 	{
 		now = list->end_b;
-		reverse(list, rrb);
+		ash(list, rrb);
 		if(list->start_b->n >= medium)
-			push(list, pa);
+			ash(list, pa);
 		else if(!first_rrb)
 			first_rrb = list->start_b;
 		if(now == en_b)
 			break;
 	}
 	count = stack_count(list->start_a) - list->sorted_num;
-	if(issorted(list) == ERROR && count > 6)
+	if(issorted(list) == ERROR && count > 3)
 		pb_and_ra(list, list->sorted_sta, list->start_a, list->sorted_sta->prev);
 	else if(issorted(list) == ERROR && count > 0)
 		sort_six(list, count);

@@ -6,7 +6,7 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:17 by tssaito           #+#    #+#             */
-/*   Updated: 2024/12/31 09:04:33 by tssaito          ###   ########.fr       */
+/*   Updated: 2025/01/02 21:11:37 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,21 @@ static int	rotate_b(t_list *list);
 
 void	rotate(t_list *list, t_act act)
 {
-	int	check_a;
-	int	check_b;
-
-	check_a = 0;
-	check_b = 0;
 	if (act == ra)
-		check_a = rotate_a(list);
+		rotate_a(list);
 	else if (act == rb)
-		check_b = rotate_b(list);
+		rotate_b(list);
 	else if (act == rr)
 	{
-		check_a = rotate_a(list);
-		check_b = rotate_b(list);
+		rotate_a(list);
+		rotate_b(list);
 	}
-	if (check_a == SUCCESS && check_b == SUCCESS)
-		write(1, "rr\n", 3);
-	else if (check_a == SUCCESS)
-		write(1, "ra\n", 3);
-	else if (check_b == SUCCESS)
-		write(1, "rb\n", 3);
+//	if (check_a == SUCCESS && check_b == SUCCESS)
+//		write(1, "rr\n", 3);
+//	else if (check_a == SUCCESS)
+//		write(1, "ra\n", 3);
+//	else if (check_b == SUCCESS)
+//		write(1, "rb\n", 3);
 }
 
 static int	rotate_a(t_list *list)

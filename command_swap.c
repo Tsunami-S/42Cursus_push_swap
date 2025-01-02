@@ -6,7 +6,7 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:21 by tssaito           #+#    #+#             */
-/*   Updated: 2024/12/20 15:54:34 by tssaito          ###   ########.fr       */
+/*   Updated: 2025/01/02 21:11:55 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,21 @@ static int	swap_b(t_list *list);
 
 void	swap(t_list *list, t_act act)
 {
-	int	check_a;
-	int	check_b;
-
-	check_a = 0;
-	check_b = 0;
 	if (act == sa)
-		check_a = swap_a(list);
+		swap_a(list);
 	else if (act == sb)
-		check_b = swap_b(list);
+		swap_b(list);
 	else if (act == ss)
 	{
-		check_a = swap_a(list);
-		check_b = swap_b(list);
+		swap_a(list);
+		swap_b(list);
 	}
-	if (check_a == SUCCESS && check_b == SUCCESS)
-		write(1, "ss\n", 3);
-	else if (check_a == SUCCESS)
-		write(1, "sa\n", 3);
-	else if (check_b == SUCCESS)
-		write(1, "sb\n", 3);
+//	if (check_a == SUCCESS && check_b == SUCCESS)
+//		write(1, "ss\n", 3);
+//	else if (check_a == SUCCESS)
+//		write(1, "sa\n", 3);
+//	else if (check_b == SUCCESS)
+//		write(1, "sb\n", 3);
 }
 
 static int	swap_a(t_list *list)
