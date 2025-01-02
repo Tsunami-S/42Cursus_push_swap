@@ -6,7 +6,7 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:03 by tssaito           #+#    #+#             */
-/*   Updated: 2025/01/02 15:32:24 by tssaito          ###   ########.fr       */
+/*   Updated: 2025/01/02 18:59:03 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,6 @@ typedef enum e_act
 
 /* push_swap */
 void push_swap(t_list *list);
-void pa_and_rrb(t_list *list, t_stack *en_b, int min, int max);
-void pa_and_rb(t_list *list, t_stack *en_b, int min, int max);
-void pb_and_rra(t_list *list, t_stack *en_a, int min, int max);
-void pb_and_ra(t_list *list, t_stack *en_a, int min, int max);
 
 void sort_three(t_list *list, t_stack *top, t_stack *middle, t_stack *bottom);
 void sort_six(t_list *list, int count);
