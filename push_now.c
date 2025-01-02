@@ -56,6 +56,8 @@ void pb_and_ra(t_list *list, t_stack *en_a, t_stack *min, t_stack *max)
 		}
 		else
 		{
+			if(list->start_a == list->end_a)
+				break;
 			ash(list ,ra);
 			if(!en_a)
 				en_a = list->end_a;
@@ -143,7 +145,8 @@ void pa_and_rrb(t_list *list, t_stack *en_b, t_stack *min, t_stack *max)
 	while(1)
 	{
 		now = list->end_b;
-		ash(list, rrb);
+		if(list->start_b != list->end_b)
+			ash(list, rrb);
 		if(list->start_b->n >= medium)
 			ash(list, pa);
 		else if(!first_rrb)
