@@ -1,69 +1,45 @@
 #include "push_swap.h"
 
-void sort_three(t_list *list, t_stack *top, t_stack *middle, t_stack *bottom)
-{
-	if(top->n < bottom->n && bottom->n < middle->n)
-	{
-		ash(list, ra);
-		ash(list, sa);
-		ash(list, rra);
-	}
-	else if(middle->n < top->n && top->n < bottom->n)
-		ash(list, sa);
-	else if(middle->n < bottom->n && bottom->n < top->n)
-	{
-		ash(list, sa);
-		ash(list, ra);
-		ash(list, sa);
-		ash(list, rra);
-	}
-	else
-	{
-		if(middle->n < top->n)
-			ash(list, sa);
-		ash(list, ra);
-		ash(list, sa);
-		ash(list, rra);
-		ash(list, sa);
-	}
-}
-
 void sort_six(t_list *list, int count)
 {
-	int pb_count;
-	t_stack *st_a;
-
-	pb_count = 0;
 	while(list->sorted_num && list->end_a != list->sorted_ena)
 		ash(list, rra);
-	if(count > 3)
-	{
-		if(!(list->start_a->n < list->start_a->next->n && list->start_a->next->n < list->start_a->next->next->n))
-			sort_three(list, list->start_a, list->start_a->next, list->start_a->next->next);
-		while(issorted(list) == ERROR && pb_count < 3)
-		{
-			ash(list, pb);
-			pb_count++;
-		}
-	}
-	if(issorted(list) == ERROR && count - pb_count == 3)
-		sort_three(list, list->start_a, list->start_a->next, list->start_a->next->next);
-	else if(issorted(list) == ERROR && count - pb_count == 2)
+	if(issorted(list) == ERROR && count == 2)
 		ash(list, sa);
-	st_a = list->start_a;
-	while(pb_count)
+	else if(issorted(list) == ERROR && count == 3)
 	{
-		if(list->end_a->n > list->start_b->n)
-		{
-			while(list->start_a->n < list->start_b->n)
-				ash(list, ra);
-		}
+		if(list->start_a->n > list->start_a->next->n)
+			ash(list, sa);
+		ash(list, pb);
+		if(list->start_a->n > list->start_a->next->n)
+			ash(list, sa);
 		ash(list, pa);
-		while(issorted(list) == ERROR && list->start_b && list->end_a->n > list->start_b->n && list->start_a != st_a)
+		if(list->start_a->n > list->start_a->next->n)
+			ash(list, sa);
+	}
+	else if(issorted(list) == ERROR && count == 4)
+	{
+		t_stack *tmp = list->start_b;
+		if(list->start_a->n > list->start_a->next->n)
+			ash(list, sa);
+		ash(list, ra);
+		if(list->start_a->n > list->start_a->next->n)
+			ash(list, sa);
+		ash(list, pb);
+		if(list->start_a->n > list->start_a->next->n)
+			ash(list, sa);
+		if(list->start_b->n > list->end_a->n)
+			ash(list, pa);
+		else
 			ash(list, rra);
-		while(issorted(list) == ERROR && !list->start_b && list->start_a != st_a)
+		if(list->start_a->n > list->start_a->next->n)
+			ash(list, sa);
+		if(list->start_b != tmp)
+			ash(list, pa);
+		else
 			ash(list, rra);
-		pb_count--;
+		if(list->start_a->n > list->start_a->next->n)
+			ash(list, sa);
 	}
 	list->sorted_sta = list->start_a;
 	list->sorted_ena = list->end_a;

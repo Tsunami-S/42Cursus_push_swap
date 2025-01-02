@@ -27,7 +27,7 @@ void push_swap(t_list *list)
 
 	count = stack_count(list->start_a);
 	ash(list, init);
-	if(count < 4)
+	if(count < 5)
 	{
 		if(issorted(list) == ERROR)
 			sort_six(list, count);
@@ -64,9 +64,9 @@ void pb_and_ra(t_list *list, t_stack *en_a, t_stack *min, t_stack *max)
 		}
 	}
 	count = stack_count(list->start_a) - list->sorted_num;
-	if(issorted(list) == ERROR && count > 3 && !list->sorted_num)
+	if(issorted(list) == ERROR && count > 4 && !list->sorted_num)
 		pb_and_ra(list, NULL, list->start_a, list->end_a);
-	else if(issorted(list) == ERROR && count > 3)
+	else if(issorted(list) == ERROR && count > 4)
 		pb_and_rra(list, list->sorted_ena, list->sorted_ena->next, list->end_a);
 	else if(issorted(list) == ERROR && count > 0)
 		sort_six(list, count);
@@ -93,7 +93,7 @@ void pb_and_rra(t_list *list, t_stack *en_a, t_stack *min, t_stack *max)
 		}
 	}
 	count = stack_count(list->start_a) - list->sorted_num;
-	if(issorted(list) == ERROR && count > 3)
+	if(issorted(list) == ERROR && count > 4)
 		pb_and_ra(list, list->sorted_sta, list->start_a, list->sorted_sta->prev);
 	else if(issorted(list) == ERROR && count > 0)
 		sort_six(list, count);
@@ -125,7 +125,7 @@ void pa_and_rb(t_list *list, t_stack *en_b, t_stack *min, t_stack *max)
 			break;
 	}
 	count = stack_count(list->start_a) - list->sorted_num;
-	if(issorted(list) == ERROR && count > 3)
+	if(issorted(list) == ERROR && count > 4)
 		pb_and_ra(list, list->sorted_sta, list->start_a, list->sorted_sta->prev);
 	else if(issorted(list) == ERROR && count > 0)
 		sort_six(list, count);
@@ -155,7 +155,7 @@ void pa_and_rrb(t_list *list, t_stack *en_b, t_stack *min, t_stack *max)
 			break;
 	}
 	count = stack_count(list->start_a) - list->sorted_num;
-	if(issorted(list) == ERROR && count > 3)
+	if(issorted(list) == ERROR && count > 4)
 		pb_and_ra(list, list->sorted_sta, list->start_a, list->sorted_sta->prev);
 	else if(issorted(list) == ERROR && count > 0)
 		sort_six(list, count);
