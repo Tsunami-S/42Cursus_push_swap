@@ -6,7 +6,7 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:03 by tssaito           #+#    #+#             */
-/*   Updated: 2024/12/31 15:42:32 by tssaito          ###   ########.fr       */
+/*   Updated: 2025/01/02 15:32:24 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,16 @@ typedef enum e_act
 }					t_act;
 
 /* push_swap */
-void pb_and_ra(t_list *list, t_stack *en_a, t_stack *hikaku);
-void pb_and_rra(t_list *list, t_stack *en_a, t_stack *hikaku);
-void pa_and_rrb(t_list *list, t_stack *en_b, t_stack *hikaku);
-void pa_and_rb(t_list *list, t_stack *en_b, t_stack *hikaku);
-//void				push_swap(t_list *list, t_stack *doko, t_stack *hikaku);
-void				sort_three(t_list *list, int count);
-int					issorted_a(t_list *list);
+void push_swap(t_list *list);
+void pa_and_rrb(t_list *list, t_stack *en_b, int min, int max);
+void pa_and_rb(t_list *list, t_stack *en_b, int min, int max);
+void pb_and_rra(t_list *list, t_stack *en_a, int min, int max);
+void pb_and_ra(t_list *list, t_stack *en_a, int min, int max);
+
+void sort_three(t_list *list, t_stack *top, t_stack *middle, t_stack *bottom);
+void sort_six(t_list *list, int count);
+void search_max_and_min(t_stack *start, int *max, int *min);
+int					issorted(t_list *list);
 int					stack_count(t_stack *stack);
 /* list_utils */
 void				error(void);

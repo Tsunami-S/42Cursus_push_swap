@@ -6,7 +6,7 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:01 by tssaito           #+#    #+#             */
-/*   Updated: 2024/12/31 15:55:09 by tssaito          ###   ########.fr       */
+/*   Updated: 2025/01/02 15:30:58 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,7 @@ int	main(int argc, char **argv)
 		check = init_stack_from_args(argc, argv, &list);
 	if (check == ERROR)
 		return (0);
-	pb_and_ra(&list, list.end_a, list.end_a);
-	//while(list.start_b)
-	//{
-	//	t_stack *tmp = list.start_a;
-	//	while(list.start_b)
-	//		push(&list, pa);
-	//	push_swap(&list, tmp, list.start_a);
-	//}
+	push_swap(&list);
 	///**********debug*********/
 	//t_stack *now = list.start_a;
 	//printf("<stack_A>\n");
