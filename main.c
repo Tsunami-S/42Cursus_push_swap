@@ -6,7 +6,7 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:01 by tssaito           #+#    #+#             */
-/*   Updated: 2025/01/03 11:31:26 by tssaito          ###   ########.fr       */
+/*   Updated: 2025/01/03 15:56:42 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ int	main(int argc, char **argv)
 	if (check == ERROR)
 		return (0);
 	push_swap(&list);
+	delete_stack(&list);
+	return (0);
+}
+
 	///**********debug*********/
 	//t_stack *now = list.start_a;
 	//printf("<stack_A>\n");
@@ -43,6 +47,3 @@ int	main(int argc, char **argv)
 	//	now = now->next;
 	//}
 	///**********debug*********/
-	delete_stack(&list);
-	return (0);
-}

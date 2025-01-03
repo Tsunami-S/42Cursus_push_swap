@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_stack.c                                       :+:      :+:    :+:   */
+/*   init_list.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:32 by tssaito           #+#    #+#             */
-/*   Updated: 2024/12/20 15:54:40 by tssaito          ###   ########.fr       */
+/*   Updated: 2025/01/03 16:29:51 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,10 @@ static int	num_check(int n, t_stack *start)
 	while (start)
 	{
 		if (start->n == n)
-			return (-1);
+			return (ERROR);
 		start = start->next;
 	}
-	return (0);
+	return (SUCCESS);
 }
 
 static t_stack	*make_node(long long n, t_stack *prev)

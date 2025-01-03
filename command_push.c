@@ -6,7 +6,7 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:10 by tssaito           #+#    #+#             */
-/*   Updated: 2025/01/02 20:56:54 by tssaito          ###   ########.fr       */
+/*   Updated: 2025/01/03 15:55:37 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ static void	push_a(t_list *list)
 	else
 		list->end_a = node_b;
 	list->start_a = node_b;
-//	write(1, "pa\n", 3);
 }
 
 static void	push_b(t_list *list)
@@ -68,5 +67,4 @@ static void	push_b(t_list *list)
 	else
 		list->end_b = node_a;
 	list->start_b = node_a;
-//	write(1, "pb\n", 3);
 }

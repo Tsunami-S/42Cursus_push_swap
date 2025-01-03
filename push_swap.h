@@ -6,7 +6,7 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:03 by tssaito           #+#    #+#             */
-/*   Updated: 2025/01/02 21:40:32 by tssaito          ###   ########.fr       */
+/*   Updated: 2025/01/03 17:25:26 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 # define OVERFLOW -42
 # define ERROR -1
-# define SUCCESS 1
+# define SUCCESS 0
 
 typedef struct s_stack
 {
@@ -58,22 +58,30 @@ typedef enum e_act
 }					t_act;
 
 /* push_swap */
-void push_swap(t_list *list);
-void ash(t_list *list, t_act act);
-void write_command(t_act act);
-void select_act(t_list *list, t_act act);
+t_stack				*exec_pa_and_rrb(t_list *list, t_stack *en_b, int medium);
+t_stack				*exec_pa_and_rb(t_list *list, t_stack *en_b, int medium);
+t_stack				*exec_pb_and_rra(t_list *list, t_stack *en_b, int medium);
+t_stack				*exec_pb_and_ra(t_list *list, t_stack *en_b, int medium);
+void				pb_and_ra(t_list *list, t_stack *en_a, int medium);
+void				pa_and_rb(t_list *list, t_stack *en_b, int medium);
+void				pa_and_rrb(t_list *list, t_stack *en_b, int medium);
+void				pb_and_rra(t_list *list, t_stack *en_a, int medium);
 
-void sort_three(t_list *list, t_stack *top, t_stack *middle, t_stack *bottom);
-void sort_six(t_list *list, int count);
-void search_max_and_min(t_stack *start, int *max, int *min);
-int					issorted(t_list *list);
-int					stack_count(t_stack *stack);
+void				push_swap(t_list *list);
+void				ash(t_list *list, t_act act);
+void				write_command(t_act act);
+void				select_act(t_list *list, t_act act);
+void				sort_small_stack(t_list *list, int count);
 /* list_utils */
 void				error(void);
 void				list_init(t_list *list);
 void				delete_stack(t_list *list);
+int					issorted_a(t_list *list);
+int					issorted(t_stack *start, t_stack *end, int sign);
 int					init_stack_from_one(char *str, t_list *list);
 int					init_stack_from_args(int argc, char **argv, t_list *list);
+int					make_medium(t_stack *start, t_stack *end);
+int					stack_count(t_stack *stack);
 /* comannds */
 void				swap(t_list *list, t_act act);
 void				push(t_list *list, t_act act);

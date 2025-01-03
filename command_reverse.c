@@ -6,7 +6,7 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:13 by tssaito           #+#    #+#             */
-/*   Updated: 2025/01/02 21:11:19 by tssaito          ###   ########.fr       */
+/*   Updated: 2025/01/03 15:55:31 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,6 @@ void	reverse(t_list *list, t_act act)
 		reverse_a(list);
 		reverse_b(list);
 	}
-//	if (check_a == SUCCESS && check_b == SUCCESS)
-//		write(1, "rrr\n", 4);
-//	else if (check_a == SUCCESS)
-//		write(1, "rra\n", 4);
-//	else if (check_b == SUCCESS)
-//		write(1, "rrb\n", 4);
 }
 
 static int	reverse_a(t_list *list)
