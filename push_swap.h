@@ -6,7 +6,7 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:03 by tssaito           #+#    #+#             */
-/*   Updated: 2025/01/03 17:25:26 by tssaito          ###   ########.fr       */
+/*   Updated: 2025/01/03 19:28:05 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ void				ash(t_list *list, t_act act);
 void				write_command(t_act act);
 void				select_act(t_list *list, t_act act);
 void				sort_small_stack(t_list *list, int count);
+void				reverse_to_start_a(t_list *list, int count);
+void				merge(t_list *list, int len_a, int len_b);
 /* list_utils */
 void				error(void);
 void				list_init(t_list *list);

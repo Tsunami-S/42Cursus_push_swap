@@ -6,28 +6,37 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 16:16:39 by tssaito           #+#    #+#             */
-/*   Updated: 2025/01/03 16:50:02 by tssaito          ###   ########.fr       */
+/*   Updated: 2025/01/03 19:48:53 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	issorted(t_stack *start, t_stack *end, int sign)
+void	merge(t_list *list, int len_a, int len_b)
 {
-	t_stack	*now;
-
-	if (!start || !end)
-		return (ERROR);
-	now = start;
-	while (now != end)
+	while (len_a && len_b)
 	{
-		if (sign > 0 && now->n > now->next->n)
-			return (ERROR);
-		else if (sign < 0 && now->n < now->next->n)
-			return (ERROR);
-		now = now->next;
+		if (len_a && list->end_a->n > list->start_b->n)
+		{
+			ash(list, rra);
+			len_a--;
+		}
+		else if (len_b && list->end_a->n < list->start_b->n)
+		{
+			ash(list, pa);
+			len_b--;
+		}
 	}
-	return (SUCCESS);
+	while (!len_a && len_b)
+	{
+		ash(list, pa);
+		len_b--;
+	}
+	while (!len_b && len_a)
+	{
+		ash(list, rra);
+		len_a--;
+	}
 }
 
 int	issorted_a(t_list *list)
@@ -47,6 +56,15 @@ int	issorted_a(t_list *list)
 	list->sorted_ena = list->end_a;
 	list->sorted_num = stack_count(list->start_a);
 	return (SUCCESS);
+}
+
+void	reverse_to_start_a(t_list *list, int count)
+{
+	if (!list->sorted_num)
+		return ;
+	while (list->end_a != list->sorted_ena)
+		ash(list, rra);
+	(void)count;
 }
 
 int	make_medium(t_stack *start, t_stack *end)

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/03 16:50:15 by tssaito           #+#    #+#             */
-/*   Updated: 2025/01/03 17:28:04 by tssaito          ###   ########.fr       */
+/*   Created: 2024/01/03 14:40:14 by tssaito           #+#    #+#             */
+/*   Updated: 2025/01/03 19:47:01 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	push_swap(t_list *list)
 
 	ash(list, init);
 	count = stack_count(list->start_a);
-	if (count < 5)
+	if (count <= 4)
 	{
 		if (issorted_a(list) == ERROR)
 			sort_small_stack(list, count);
