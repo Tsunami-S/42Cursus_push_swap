@@ -13,9 +13,6 @@ int	issorted_a(t_list *list)
 			return (ERROR);
 		now = now->next;
 	}
-	list->sorted_sta = list->start_a;
-	list->sorted_ena = list->end_a;
-	list->sorted_num = stack_count(list->start_a);
 	return (SUCCESS);
 }
 
@@ -49,8 +46,8 @@ int issorted_go_next(t_stack *start, int count)
 
 int issorted_go_prev(t_stack *start, int count)
 {
-	t_stack *now;
 	int i;
+	t_stack *now;
 
 	i = 0;
 	now = start;

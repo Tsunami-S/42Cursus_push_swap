@@ -6,7 +6,7 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:35 by tssaito           #+#    #+#             */
-/*   Updated: 2025/01/03 16:24:22 by tssaito          ###   ########.fr       */
+/*   Updated: 2025/01/05 19:02:11 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,6 @@ void	list_init(t_list *list)
 	list->start_b = NULL;
 	list->end_a = NULL;
 	list->end_b = NULL;
-	list->sorted_sta = NULL;
-	list->sorted_ena = NULL;
-	list->sorted_num = 0;
 }
 
 void	delete_stack(t_list *list)

@@ -6,24 +6,24 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:10 by tssaito           #+#    #+#             */
-/*   Updated: 2025/01/03 15:55:37 by tssaito          ###   ########.fr       */
+/*   Updated: 2025/01/05 18:27:11 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	push_a(t_list *list);
-static void	push_b(t_list *list);
+static void	push_to_a(t_list *list);
+static void	push_to_b(t_list *list);
 
 void	push(t_list *list, t_act act)
 {
 	if (act == pa)
-		push_a(list);
+		push_to_a(list);
 	else if (act == pb)
-		push_b(list);
+		push_to_b(list);
 }
 
-static void	push_a(t_list *list)
+static void	push_to_a(t_list *list)
 {
 	t_stack	*node_a;
 	t_stack	*node_b;
@@ -46,7 +46,7 @@ static void	push_a(t_list *list)
 	list->start_a = node_b;
 }
 
-static void	push_b(t_list *list)
+static void	push_to_b(t_list *list)
 {
 	t_stack	*node_a;
 	t_stack	*node_b;

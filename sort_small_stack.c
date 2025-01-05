@@ -6,7 +6,7 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 19:48:26 by tssaito           #+#    #+#             */
-/*   Updated: 2025/01/05 18:06:36 by tssaito          ###   ########.fr       */
+/*   Updated: 2025/01/05 19:12:56 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 void	sort_three(t_list *list);
 void	sort_four(t_list *list);
 void	sort_five(t_list *list);
-void	sort_six(t_list *list);
 
 void	sort_small_stack(t_list *list, int count)
 {
-//	reverse_to_start_a(list, count);
 	if (count == 1 || issorted_go_next(list->start_a, count) == PLUS)
 		return ;
 	if (count == 2)
@@ -30,11 +28,6 @@ void	sort_small_stack(t_list *list, int count)
 		sort_four(list);
 	else if (count == 5)
 		sort_five(list);
-	else if (count == 6)
-		sort_six(list);
-	list->sorted_sta = list->start_a;
-	list->sorted_ena = list->end_a;
-	list->sorted_num = stack_count(list->start_a);
 }
 
 void	sort_three(t_list *list)
@@ -110,29 +103,5 @@ void	sort_five(t_list *list)
 		ash(list, pa);
 		return ;
 	}
-	else if (list->sorted_num)
-	{
-		ash(list, ra);
-		ash(list, ra);
-		ash(list, ra);
-	}
 	merge(list, 3, 2);
-}
-
-void	sort_six(t_list *list)
-{
-	sort_three(list);
-	if (issorted_a(list) == SUCCESS)
-		return ;
-	ash(list, pb);
-	ash(list, pb);
-	ash(list, pb);
-	sort_three(list);
-	if (stack_count(list->start_a) != 3)
-	{
-		ash(list, ra);
-		ash(list, ra);
-		ash(list, ra);
-	}
-	merge(list, 3, 3);
 }

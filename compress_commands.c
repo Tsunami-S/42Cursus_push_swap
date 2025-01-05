@@ -6,7 +6,7 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 22:01:39 by tssaito           #+#    #+#             */
-/*   Updated: 2025/01/03 16:28:32 by tssaito          ###   ########.fr       */
+/*   Updated: 2025/01/05 19:23:01 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,43 +19,43 @@ void	select_act(t_list *list, t_act act);
 void	ash(t_list *list, t_act act)
 {
 	static t_act	prev;
-	static int		i;
+//	static int		i;
 
 	if (act == init)
 	{
-		i = 0;
+//		i = 0;
 		prev = none;
 		return ;
 	}
 	select_act(list, act);
-	if ((prev == pa && act == pa) || (prev == pb && act == pb) || (prev == ra
-			&& act == ra) || (prev == rb && act == rb) || (prev == rra
-			&& act == rra) || (prev == rrb && act == rrb))
-	{
-		if (!i)
-			i = 2;
-		else
-			i++;
-		return ;
-	}
-	if (i && ((prev == pa && act == pb) || (prev == pb && act == pa)
-			|| (prev == ra && act == rra) || (prev == rb && act == rrb)
-			|| (prev == rra && act == ra) || (prev == rrb && act == rb)))
-	{
-		i--;
-		if (!i)
-			prev = none;
-		return ;
-	}
-	else if (i > 0)
-	{
-		while (i-- > 0)
-			write_command(prev);
-		i = 0;
-		prev = act;
-		return ;
-	}
-	else if ((prev == sa && act == sb) || (prev == sb && act == sa))
+//	if ((prev == pa && act == pa) || (prev == pb && act == pb) || (prev == ra
+//			&& act == ra) || (prev == rb && act == rb) || (prev == rra
+//			&& act == rra) || (prev == rrb && act == rrb))
+//	{
+//		if (!i)
+//			i = 2;
+//		else
+//			i++;
+//		return ;
+//	}
+//	else if (i && ((prev == pa && act == pb) || (prev == pb && act == pa)
+//			|| (prev == ra && act == rra) || (prev == rb && act == rrb)
+//			|| (prev == rra && act == ra) || (prev == rrb && act == rb)))
+//	{
+//		i--;
+//		if (!i)
+//			prev = none;
+//		return ;
+//	}
+//	else if (i > 0)
+//	{
+//		while (i-- > 0)
+//			write_command(prev);
+//		i = 0;
+//		prev = act;
+//		return ;
+//	}
+	if ((prev == sa && act == sb) || (prev == sb && act == sa))
 		write_command(ss);
 	else if ((prev == ra && act == rb) || (prev == rb && act == ra))
 		write_command(rr);
