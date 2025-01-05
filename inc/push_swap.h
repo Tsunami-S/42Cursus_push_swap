@@ -6,7 +6,7 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:03 by tssaito           #+#    #+#             */
-/*   Updated: 2025/01/05 22:45:00 by tssaito          ###   ########.fr       */
+/*   Updated: 2025/01/06 00:26:24 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,19 +63,21 @@ void				sort_a_bottom(t_list *list, int start_size);
 void				sort_b_top(t_list *list, int count);
 void				sort_b_bottom(t_list *list, int count);
 void				sort_small_stack(t_list *list, int count);
-void sort_small_a_bottom(t_list *list, int count);
-void sort_small_b_top(t_list *list, int count);
-void sort_small_b_bottom(t_list *list, int count);
+void				sort_small_a_bottom(t_list *list, int count);
+void				sort_small_b_top(t_list *list, int count);
+void				sort_small_b_bottom(t_list *list, int count);
 
-void	compress_cmds(t_list *list, t_act act);
-void	consecutive_cmds(t_list *list, t_act act, int count);
+void				compress_cmds(t_list *list, t_act act);
+void				consecutive_cmds(t_list *list, t_act act, int count);
 
 int					issorted_a(t_list *list);
 int					issorted_go_next(t_stack *start, int count);
 int					issorted_go_prev(t_stack *start, int count);
 
-void	make_pivot_go_next(t_stack *start, int size, int *large, int *small);
-void	make_pivot_go_prev(t_stack *start, int size, int *large, int *small);
+void				make_pivot_go_next(t_stack *start, int size, int *large,
+						int *small);
+void				make_pivot_go_prev(t_stack *start, int size, int *large,
+						int *small);
 
 /* sort_utils */
 int					stack_count(t_stack *stack);
