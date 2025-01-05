@@ -6,11 +6,11 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:10 by tssaito           #+#    #+#             */
-/*   Updated: 2025/01/05 18:27:11 by tssaito          ###   ########.fr       */
+/*   Updated: 2025/01/05 22:17:06 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../inc/push_swap.h"
 
 static void	push_to_a(t_list *list);
 static void	push_to_b(t_list *list);

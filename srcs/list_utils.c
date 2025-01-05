@@ -6,11 +6,11 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:35 by tssaito           #+#    #+#             */
-/*   Updated: 2025/01/05 19:02:11 by tssaito          ###   ########.fr       */
+/*   Updated: 2025/01/05 22:17:35 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../inc/push_swap.h"
 
 void	list_init(t_list *list)
 {

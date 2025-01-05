@@ -6,11 +6,11 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:17 by tssaito           #+#    #+#             */
-/*   Updated: 2025/01/03 15:56:03 by tssaito          ###   ########.fr       */
+/*   Updated: 2025/01/05 22:17:19 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../inc/push_swap.h"
 
 static int	rotate_a(t_list *list);
 static int	rotate_b(t_list *list);

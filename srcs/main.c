@@ -6,11 +6,11 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:01 by tssaito           #+#    #+#             */
-/*   Updated: 2025/01/05 14:54:40 by tssaito          ###   ########.fr       */
+/*   Updated: 2025/01/05 22:24:51 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../inc/push_swap.h"
 
 int	main(int argc, char **argv)
 {
@@ -26,26 +26,24 @@ int	main(int argc, char **argv)
 		check = init_stack_from_args(argc, argv, &list);
 	if (check == ERROR)
 		return (0);
-	if (issorted_a(&list) == SUCCESS)
-		return (0);
 	push_swap(&list);
 	delete_stack(&list);
 	return (0);
 }
 
-	///**********debug*********/
-	//t_stack *now = list.start_a;
-	//printf("<stack_A>\n");
-	//while(now)
-	//{
-	//	printf("%d\n", now->n);
-	//	now = now->next;
-	//}
-	//now = list.start_b;
-	//printf("<stack_B>\n");
-	//while(now)
-	//{
-	//	printf("%d\n", now->n);
-	//	now = now->next;
-	//}
-	///**********debug*********/
+///**********debug*********/
+//t_stack *now = list.start_a;
+//printf("<stack_A>\n");
+//while(now)
+//{
+//	printf("%d\n", now->n);
+//	now = now->next;
+//}
+//now = list.start_b;
+//printf("<stack_B>\n");
+//while(now)
+//{
+//	printf("%d\n", now->n);
+//	now = now->next;
+//}
+///**********debug*********/

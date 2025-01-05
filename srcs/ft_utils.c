@@ -6,11 +6,11 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:29 by tssaito           #+#    #+#             */
-/*   Updated: 2024/12/20 15:55:23 by tssaito          ###   ########.fr       */
+/*   Updated: 2025/01/05 22:17:27 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../inc/push_swap.h"
 
 long long	ft_atol(const char *nptr)
 {

@@ -6,55 +6,25 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 22:01:39 by tssaito           #+#    #+#             */
-/*   Updated: 2025/01/05 19:23:01 by tssaito          ###   ########.fr       */
+/*   Updated: 2025/01/05 22:15:07 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ash(t_list *list, t_act act);
-void	write_command(t_act act);
-void	select_act(t_list *list, t_act act);
+static void	write_command(t_act act);
+static void	select_act(t_list *list, t_act act);
 
-void	ash(t_list *list, t_act act)
+void	compress_cmds(t_list *list, t_act act)
 {
 	static t_act	prev;
-//	static int		i;
 
 	if (act == init)
 	{
-//		i = 0;
 		prev = none;
 		return ;
 	}
 	select_act(list, act);
-//	if ((prev == pa && act == pa) || (prev == pb && act == pb) || (prev == ra
-//			&& act == ra) || (prev == rb && act == rb) || (prev == rra
-//			&& act == rra) || (prev == rrb && act == rrb))
-//	{
-//		if (!i)
-//			i = 2;
-//		else
-//			i++;
-//		return ;
-//	}
-//	else if (i && ((prev == pa && act == pb) || (prev == pb && act == pa)
-//			|| (prev == ra && act == rra) || (prev == rb && act == rrb)
-//			|| (prev == rra && act == ra) || (prev == rrb && act == rb)))
-//	{
-//		i--;
-//		if (!i)
-//			prev = none;
-//		return ;
-//	}
-//	else if (i > 0)
-//	{
-//		while (i-- > 0)
-//			write_command(prev);
-//		i = 0;
-//		prev = act;
-//		return ;
-//	}
 	if ((prev == sa && act == sb) || (prev == sb && act == sa))
 		write_command(ss);
 	else if ((prev == ra && act == rb) || (prev == rb && act == ra))
@@ -72,7 +42,13 @@ void	ash(t_list *list, t_act act)
 	prev = none;
 }
 
-void	select_act(t_list *list, t_act act)
+void	consecutive_cmds(t_list *list, t_act act, int count)
+{
+	while (count--)
+		compress_cmds(list, act);
+}
+
+static void	select_act(t_list *list, t_act act)
 {
 	if (act == sa || act == sb || act == ss)
 		swap(list, act);
@@ -84,7 +60,7 @@ void	select_act(t_list *list, t_act act)
 		reverse(list, act);
 }
 
-void	write_command(t_act act)
+static void	write_command(t_act act)
 {
 	if (act == sa)
 		write(1, "sa\n", 3);
