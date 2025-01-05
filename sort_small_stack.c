@@ -6,7 +6,7 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 19:48:26 by tssaito           #+#    #+#             */
-/*   Updated: 2025/01/04 00:19:08 by tssaito          ###   ########.fr       */
+/*   Updated: 2025/01/05 18:06:36 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	sort_six(t_list *list);
 
 void	sort_small_stack(t_list *list, int count)
 {
-	reverse_to_start_a(list, count);
-	if (issorted_a(list) == SUCCESS)
+//	reverse_to_start_a(list, count);
+	if (count == 1 || issorted_go_next(list->start_a, count) == PLUS)
 		return ;
 	if (count == 2)
 		ash(list, sa);

@@ -6,7 +6,7 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 16:16:39 by tssaito           #+#    #+#             */
-/*   Updated: 2025/01/03 19:48:53 by tssaito          ###   ########.fr       */
+/*   Updated: 2025/01/05 13:14:07 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,24 +39,6 @@ void	merge(t_list *list, int len_a, int len_b)
 	}
 }
 
-int	issorted_a(t_list *list)
-{
-	t_stack	*now;
-
-	if (!list)
-		return (ERROR);
-	now = list->start_a;
-	while (now != list->end_a)
-	{
-		if (now->n > now->next->n)
-			return (ERROR);
-		now = now->next;
-	}
-	list->sorted_sta = list->start_a;
-	list->sorted_ena = list->end_a;
-	list->sorted_num = stack_count(list->start_a);
-	return (SUCCESS);
-}
 
 void	reverse_to_start_a(t_list *list, int count)
 {
