@@ -6,7 +6,7 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:29 by tssaito           #+#    #+#             */
-/*   Updated: 2025/01/05 22:17:27 by tssaito          ###   ########.fr       */
+/*   Updated: 2025/01/06 11:34:11 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ long long	ft_atol(const char *nptr)
 		ans = ans * 10 + *nptr - '0';
 		nptr++;
 	}
+	if (*nptr == '.')
+		return (LONG_MAX);
 	return (ans * sign);
 }
 

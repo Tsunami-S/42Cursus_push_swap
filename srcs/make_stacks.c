@@ -6,13 +6,13 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:32 by tssaito           #+#    #+#             */
-/*   Updated: 2025/01/05 22:17:40 by tssaito          ###   ########.fr       */
+/*   Updated: 2025/01/06 11:29:09 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static int		num_check(int n, t_stack *start);
+static int		num_check(long long n, t_stack *start);
 static t_stack	*make_node(long long n, t_stack *prev);
 static char		*now_pointa(char *str);
 
@@ -71,8 +71,10 @@ int	init_stack_from_args(int argc, char **argv, t_list *list)
 	return (SUCCESS);
 }
 
-static int	num_check(int n, t_stack *start)
+static int	num_check(long long n, t_stack *start)
 {
+	if (n > INT_MAX || n < INT_MIN)
+		return (ERROR);
 	while (start)
 	{
 		if (start->n == n)
