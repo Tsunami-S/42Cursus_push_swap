@@ -6,7 +6,7 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:03 by tssaito           #+#    #+#             */
-/*   Updated: 2025/01/06 00:35:50 by tssaito          ###   ########.fr       */
+/*   Updated: 2025/01/06 11:20:58 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ int					init_stack_from_args(int argc, char **argv, t_list *list);
 /* compress_cmds */
 void				compress_cmds(t_list *list, t_act act);
 void				consecutive_cmds(t_list *list, t_act act, int count);
+void				select_act(t_list *list, t_act act);
 /* comannds */
 void				swap(t_list *list, t_act act);
 void				push(t_list *list, t_act act);
@@ -94,5 +95,7 @@ long long			ft_atol(const char *nptr);
 int					ft_issign(char c);
 int					ft_isspace(char c);
 int					ft_isdigit(int c);
+/* bonus */
+void				checker(t_list *list);
 
 #endif

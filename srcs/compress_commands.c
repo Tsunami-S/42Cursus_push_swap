@@ -6,14 +6,13 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 22:01:39 by tssaito           #+#    #+#             */
-/*   Updated: 2025/01/05 22:15:07 by tssaito          ###   ########.fr       */
+/*   Updated: 2025/01/06 11:10:12 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 static void	write_command(t_act act);
-static void	select_act(t_list *list, t_act act);
 
 void	compress_cmds(t_list *list, t_act act)
 {
@@ -48,7 +47,7 @@ void	consecutive_cmds(t_list *list, t_act act, int count)
 		compress_cmds(list, act);
 }
 
-static void	select_act(t_list *list, t_act act)
+void	select_act(t_list *list, t_act act)
 {
 	if (act == sa || act == sb || act == ss)
 		swap(list, act);
