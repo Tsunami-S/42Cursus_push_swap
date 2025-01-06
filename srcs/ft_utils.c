@@ -6,7 +6,7 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:29 by tssaito           #+#    #+#             */
-/*   Updated: 2025/01/06 11:34:11 by tssaito          ###   ########.fr       */
+/*   Updated: 2025/01/06 14:28:59 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ long long	ft_atol(const char *nptr)
 		ans = ans * 10 + *nptr - '0';
 		nptr++;
 	}
-	if (*nptr == '.')
-		return (LONG_MAX);
 	return (ans * sign);
 }
 
@@ -54,4 +52,20 @@ int	ft_isspace(char c)
 int	ft_issign(char c)
 {
 	return (c == '+' || c == '-');
+}
+
+int	char_check(char *str)
+{
+	while (*str)
+	{
+		if (ft_isdigit(*str))
+			str++;
+		else if (ft_isspace(*str))
+			str++;
+		else if (ft_issign(*str))
+			str++;
+		else
+			return (ERROR);
+	}
+	return (SUCCESS);
 }

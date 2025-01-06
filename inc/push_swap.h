@@ -6,7 +6,7 @@
 /*   By: tssaito <tssaito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:18:03 by tssaito           #+#    #+#             */
-/*   Updated: 2025/01/06 11:20:58 by tssaito          ###   ########.fr       */
+/*   Updated: 2025/01/06 14:27:38 by tssaito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,11 +76,11 @@ int					issorted_a(t_list *list);
 int					issorted_go_next(t_stack *start, int count);
 int					issorted_go_prev(t_stack *start, int count);
 /* list_utils */
-void				error(void);
 void				list_init(t_list *list);
 void				delete_stack(t_list *list);
 int					init_stack_from_one(char *str, t_list *list);
 int					init_stack_from_args(int argc, char **argv, t_list *list);
+int					char_check(char *str);
 /* compress_cmds */
 void				compress_cmds(t_list *list, t_act act);
 void				consecutive_cmds(t_list *list, t_act act, int count);
@@ -95,6 +95,7 @@ long long			ft_atol(const char *nptr);
 int					ft_issign(char c);
 int					ft_isspace(char c);
 int					ft_isdigit(int c);
+void				error(void);
 /* bonus */
 void				checker(t_list *list);
 
