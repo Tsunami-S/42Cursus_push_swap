@@ -1,0 +1,3 @@
+# push_swap is a program to sort elements using two stacks.
+* submitted: passed with perfect score with bonus points, but they are very difficult to read...
+* remaking: I'm rewriting the submitted code to make it better.
