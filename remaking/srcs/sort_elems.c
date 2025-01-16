@@ -8,7 +8,7 @@ void	make_stack_a_smaller(t_stack *stacks, int start_size)
 	if (act_count.to_a_bottom <= 5)
 		sort_few_elems(stacks, act_count.to_a_bottom);
 	else if (is_stack_sorted(stacks->start_a, act_count.to_a_bottom) != ASCENDING)
-		make_elem_a_smaller(stacks, act_count.to_a_bottom);
+		make_stack_a_smaller(stacks, act_count.to_a_bottom);
 	sort_stack_b_top(stacks, act_count.to_b_top);
 	sort_stack_b_bottom(stacks, act_count.to_b_bottom);
 }
